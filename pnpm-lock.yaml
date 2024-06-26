@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      '@sprout2000/esbuild-copy-plugin':
+        specifier: ^1.1.15
+        version: 1.1.15
       electron:
         specifier: ^31.1.0
         version: 31.1.0
@@ -165,6 +168,10 @@ packages:
   '@sindresorhus/is@4.6.0':
     resolution: {integrity: sha512-t09vSN3MdfsyCHoFcTRCH/iUtG7OJ0CsjzB8cjAmKc/va/kIgeDI/TxsigdncE/4be734m0cvIYwNaV4i2XqAw==}
     engines: {node: '>=10'}
+
+  '@sprout2000/esbuild-copy-plugin@1.1.15':
+    resolution: {integrity: sha512-IxegFuxXj8AKJ4ADqhPo7ww8EOtLRZ0GHDVGGp7OtnhJW7MAukEnJeK8i3VH30rMd46geQuoh3uA4dU5UtBrNg==}
+    engines: {node: '>=16.7'}
 
   '@szmarczak/http-timer@4.0.6':
     resolution: {integrity: sha512-4BAffykYOgO+5nzBWYwE3W90sBgLJoUPRWWcL8wlyiM8IB8ipJz3UMJ9KXQd1RKQXpKp8Tutn80HZtWsu2u76w==}
@@ -529,6 +536,8 @@ snapshots:
     optional: true
 
   '@sindresorhus/is@4.6.0': {}
+
+  '@sprout2000/esbuild-copy-plugin@1.1.15': {}
 
   '@szmarczak/http-timer@4.0.6':
     dependencies:
