@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "module": "NodeNext",
+    "target": "ES2018",
+    "rootDir": "src/",
+    "outDir": "dist/",
+    "moduleResolution": "NodeNext"
+  },
+  "exclude": ["node_modules"]
+}
