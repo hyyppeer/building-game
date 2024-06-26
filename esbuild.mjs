@@ -8,10 +8,3 @@ await esbuild.build({
   platform: 'node',
   external: ['electron'],
 })
-await esbuild.build({
-  entryPoints: ['app/index.html'],
-  bundle: true,
-  metafile: true,
-  outdir: 'dist/app/',
-  platform: 'browser',
-})
