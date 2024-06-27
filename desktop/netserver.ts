@@ -20,10 +20,7 @@ type Handlers = {
 class NetServerBase {
   private server: WebSocketServer
   private handlers: Handlers = {
-    [Operation.InvalidDataError]: function (
-      socket: WebSocket,
-      data: MessageData
-    ) {
+    [Operation.InvalidDataError]() {
       console.error('InvalidDataError from socket')
     },
   }
