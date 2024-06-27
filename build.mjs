@@ -4,9 +4,9 @@ import * as esbuild from 'esbuild'
 
 await esbuild.build({
   entryNames: '[dir]/[name]',
-  entryPoints: ['desktop/main.ts'],
+  entryPoints: ['desktop/main.ts', 'desktop/preload.ts'],
   bundle: true,
-  outfile: 'dist/desktop/main.js',
+  outdir: 'dist/desktop/',
   platform: 'node',
   external: ['electron'],
   minify: true,

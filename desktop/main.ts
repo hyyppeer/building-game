@@ -1,8 +1,13 @@
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, ipcMain } from 'electron'
+import startServer from './netserver'
+
 const createWindow = () => {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
+    webPreferences: {
+      preload: `${__dirname}/preload.js`,
+    },
   })
 
   win.loadFile('dist/core/game.html')
@@ -17,4 +22,8 @@ app.whenReady().then(() => {
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit()
+})
+
+ipcMain.on('server-start', (_e, port: number) => {
+  startServer(port)
 })
