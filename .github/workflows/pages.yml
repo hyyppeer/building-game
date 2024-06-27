@@ -1,4 +1,6 @@
 name: Github Pages
+permissions:
+  id-token: write
 on:
   push:
     branches: main
@@ -20,4 +22,4 @@ jobs:
         path: dist/core/
     - uses: actions/deploy-pages@v4.0.5
       with:
-        token: ${{ secrets.deploytoken }}
+        token: ${{ secrets.GITHUB_TOKEN }}
