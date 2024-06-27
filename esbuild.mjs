@@ -1,4 +1,5 @@
 import copyPlugin from '@sprout2000/esbuild-copy-plugin'
+import vuePlugin from 'esbuild-plugin-vue-next'
 import * as esbuild from 'esbuild'
 
 await esbuild.build({
@@ -23,6 +24,7 @@ await esbuild.build({
       src: 'app/',
       dest: 'dist/app/',
     }),
+    vuePlugin(),
   ],
   minify: true,
 })

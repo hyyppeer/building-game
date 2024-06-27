@@ -4,8 +4,7 @@
   "description": "",
   "main": "dist/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
+    "build": "rm -rf dist && node esbuild.mjs",
     "start": "electron ."
   },
   "keywords": [],
@@ -17,10 +16,12 @@
     "@types/three": "^0.165.0",
     "electron": "^31.1.0",
     "esbuild": "0.21.5",
+    "esbuild-plugin-vue-next": "^0.1.4",
     "typescript": "^5.5.2"
   },
   "dependencies": {
     "fast-simplex-noise": "^4.0.0",
-    "three": "^0.165.0"
+    "three": "^0.165.0",
+    "vue": "^3.4.30"
   }
 }
