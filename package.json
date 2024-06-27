@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/desktop/main.js",
   "scripts": {
-    "build": "rm -rf dist && node esbuild.mjs",
+    "build": "rm -rf dist && node build.mjs",
     "start": "electron ."
   },
   "keywords": [],
