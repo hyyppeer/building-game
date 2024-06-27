@@ -14,15 +14,15 @@ await esbuild.build({
 })
 
 await esbuild.build({
-  entryPoints: ['app/script.ts'],
+  entryPoints: ['core/script.ts'],
   sourcemap: true,
   bundle: true,
-  outdir: 'dist/app/',
+  outdir: 'dist/core/',
   platform: 'browser',
   plugins: [
     copyPlugin.copyPlugin({
-      src: 'app/',
-      dest: 'dist/app/',
+      src: 'core/',
+      dest: 'dist/core/',
     }),
     vuePlugin(),
   ],
