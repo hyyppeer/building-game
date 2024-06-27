@@ -1,8 +1,11 @@
 name: Github Pages
-on: push
+on:
+  push:
+    branches: main
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: production
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
@@ -17,4 +20,4 @@ jobs:
         path: dist/core/
     - uses: actions/deploy-pages@v4.0.5
       with:
-        token: ${{ secrets.GHPAGESDEPLOYTOKEN }}
+        token: ${{ secrets.deploytoken }}
