@@ -4,7 +4,7 @@ import { FlyControls } from 'three/addons/controls/FlyControls.js'
 import { generateTerrain } from '../scripts/terrainGeneration'
 </script>
 
-<script>
+<script lang="ts">
 const scene = new THREE.Scene()
 const camera = new THREE.PerspectiveCamera(
   75,
