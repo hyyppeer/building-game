@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import * as THREE from 'three'
 import { FlyControls } from 'three/addons/controls/FlyControls.js'
 import { generateTerrain } from '../scripts/terrainGeneration'

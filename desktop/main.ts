@@ -6,7 +6,8 @@ const createWindow = () => {
     width: 800,
     height: 600,
     webPreferences: {
-      preload: `${__dirname}/preload.js`,
+      preload: `dist/desktop/preload.js`,
+      webSecurity: false,
     },
   })
 
