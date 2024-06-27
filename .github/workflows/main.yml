@@ -1,5 +1,0 @@
-name: Electron Builder
-jobs: 
-  build:
-    runs-on: paneron/action-electron-builder@14b133702d1b2e9749912051c43ed62b4afe56c8
-on: push
