@@ -1,6 +1,7 @@
 name: Github Pages
 permissions:
   id-token: write
+  pages: write
 on:
   push:
     branches: main
