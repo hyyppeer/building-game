@@ -24,10 +24,10 @@ await esbuild.build({
 })
 
 await esbuild.build({
-  entryPoints: ['core/game.ts', 'core/index.ts'],
+  entryPoints: ['core/scripts/game.ts', 'core/scripts/index.ts'],
   sourcemap: true,
   bundle: true,
-  outdir: 'dist/core/',
+  outdir: 'dist/core/scripts',
   platform: 'browser',
   plugins: [
     copyPlugin.copyPlugin({

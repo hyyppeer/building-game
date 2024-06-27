@@ -5,11 +5,13 @@ const tileSize = 5
 const mapWidth = 25
 
 const seed = (Math.random() * 10) ^ 8
+const divisor = 5
+const amplitude = 5
 
 const noise = makeNoise3D()
 
 function generateHeight(x: number, y: number): number {
-  return noise(x, y, seed)
+  return noise(x / divisor, y / divisor, seed) * amplitude
 }
 
 function generateVertices(): Vector3[][] {
