@@ -24,7 +24,7 @@ await esbuild.build({
 })
 
 await esbuild.build({
-  entryPoints: ['core/scripts/game.ts', 'core/scripts/index.ts'],
+  entryPoints: ['core/scripts/game.ts', 'core/scripts/router.ts'],
   sourcemap: true,
   bundle: true,
   outdir: 'dist/core/scripts',

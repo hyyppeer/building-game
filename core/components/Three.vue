@@ -5,19 +5,25 @@ import { generateTerrain } from '../scripts/terrainGeneration'
 </script>
 
 <script lang="ts">
-const scene = new THREE.Scene()
-const camera = new THREE.PerspectiveCamera(
-  75,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  500
-)
-
-const renderer = new THREE.WebGLRenderer()
-const controls = new FlyControls(camera, renderer.domElement)
-const clock = new THREE.Clock()
-
 function init() {
+  const canvas = document.getElementById('game-canvas')
+
+  if (!canvas) return
+
+  const scene = new THREE.Scene()
+  const camera = new THREE.PerspectiveCamera(
+    75,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    500
+  )
+
+  const renderer = new THREE.WebGLRenderer({
+    canvas,
+  })
+  const controls = new FlyControls(camera, renderer.domElement)
+  const clock = new THREE.Clock()
+
   renderer.setSize(window.innerWidth, window.innerHeight)
   renderer.setAnimationLoop(animate)
 
@@ -39,16 +45,19 @@ function init() {
     const mesh = new THREE.Mesh(geo, mat)
     scene.add(mesh)
   })
+
+  function animate() {
+    controls.update(clock.getDelta())
+    renderer.render(scene, camera)
+  }
+
+  window.addEventListener('resize', () => {
+    renderer.setSize(window.innerWidth, window.innerHeight)
+  })
 }
-
-function animate() {
-  controls.update(clock.getDelta())
-  renderer.render(scene, camera)
-}
-
-window.addEventListener('resize', () => {
-  renderer.setSize(window.innerWidth, window.innerHeight)
-})
-
 init()
 </script>
+
+<template>
+  <canvas id="game-canvas"></canvas>
+</template>

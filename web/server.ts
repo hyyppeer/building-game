@@ -7,5 +7,5 @@ const app = express()
 app.use(express.static(`${__dirname}/core/`))
 
 app.listen(port, () => {
-  console.log(`Listening on port ${port}, serving ${__dirname}/core/`)
+  console.log(`Listening on port ${port}, serving ${__dirname}\\core\\`)
 })
