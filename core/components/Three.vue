@@ -2,14 +2,12 @@
 import * as THREE from 'three'
 import { FlyControls } from 'three/addons/controls/FlyControls.js'
 import { generateTerrain } from '../scripts/terrainGeneration'
-</script>
+import { ref, onMounted } from 'vue'
 
-<script lang="ts">
-function init() {
-  const canvas = document.getElementById('game-canvas')
+console.log('init canvas')
+const canvas = ref<HTMLCanvasElement>()
 
-  if (!canvas) return
-
+onMounted(() => {
   const scene = new THREE.Scene()
   const camera = new THREE.PerspectiveCamera(
     75,
@@ -19,7 +17,7 @@ function init() {
   )
 
   const renderer = new THREE.WebGLRenderer({
-    canvas,
+    canvas: canvas.value,
   })
   const controls = new FlyControls(camera, renderer.domElement)
   const clock = new THREE.Clock()
@@ -54,10 +52,9 @@ function init() {
   window.addEventListener('resize', () => {
     renderer.setSize(window.innerWidth, window.innerHeight)
   })
-}
-init()
+})
 </script>
 
 <template>
-  <canvas id="game-canvas"></canvas>
+  <canvas ref="canvas"></canvas>
 </template>
