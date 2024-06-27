@@ -1,3 +1,6 @@
 <template>
-  <h1>hello welcome</h1>
+  <main>
+    <h1>Welcome!</h1>
+    <a href="./game.html">Play</a>
+  </main>
 </template>
