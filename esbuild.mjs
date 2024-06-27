@@ -4,9 +4,9 @@ import * as esbuild from 'esbuild'
 
 await esbuild.build({
   entryNames: '[dir]/[name]',
-  entryPoints: ['src/main.ts'],
+  entryPoints: ['desktop/main.ts'],
   bundle: true,
-  outfile: 'dist/main.js',
+  outfile: 'dist/desktop/main.js',
   platform: 'node',
   external: ['electron'],
   minify: true,
@@ -14,7 +14,17 @@ await esbuild.build({
 })
 
 await esbuild.build({
-  entryPoints: ['core/script.ts'],
+  entryNames: '[dir]/[name]',
+  entryPoints: ['web/server.ts'],
+  bundle: true,
+  outfile: 'dist/webserver.js',
+  platform: 'node',
+  minify: true,
+  sourcemap: true,
+})
+
+await esbuild.build({
+  entryPoints: ['core/game.ts', 'core/index.ts'],
   sourcemap: true,
   bundle: true,
   outdir: 'dist/core/',

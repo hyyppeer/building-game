@@ -5,9 +5,3 @@ import Three from './components/Three.vue'
 <template>
   <Three></Three>
 </template>
-
-<style>
-body {
-  margin: 0;
-}
-</style>
