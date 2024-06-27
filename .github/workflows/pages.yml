@@ -9,7 +9,7 @@ jobs:
       with:
         node-version: 20.14.0
     - run: corepack enable
-    - run: pnpm ci
+    - run: pnpm install
     - run: pnpm run build
     - uses: actions/upload-pages-artifact@v3.0.1
       with:
