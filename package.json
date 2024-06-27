@@ -20,6 +20,7 @@
     "typescript": "^5.5.2"
   },
   "dependencies": {
+    "fast-simplex-noise": "^4.0.0",
     "three": "^0.165.0"
   }
 }

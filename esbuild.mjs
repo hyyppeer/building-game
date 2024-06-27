@@ -8,10 +8,13 @@ await esbuild.build({
   outfile: 'dist/main.js',
   platform: 'node',
   external: ['electron'],
+  minify: true,
+  sourcemap: true,
 })
 
 await esbuild.build({
   entryPoints: ['app/script.ts'],
+  sourcemap: true,
   bundle: true,
   outdir: 'dist/app/',
   platform: 'browser',
@@ -21,4 +24,5 @@ await esbuild.build({
       dest: 'dist/app/',
     }),
   ],
+  minify: true,
 })

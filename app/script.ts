@@ -1,29 +1,42 @@
 import * as THREE from 'three'
+import { FlyControls } from 'three/addons/controls/FlyControls.js'
+import { generateTerrain } from './terrainGeneration'
 
 const scene = new THREE.Scene()
 const camera = new THREE.PerspectiveCamera(
   75,
   window.innerWidth / window.innerHeight,
   0.1,
-  1000
+  50
 )
 
 const renderer = new THREE.WebGLRenderer()
 renderer.setSize(window.innerWidth, window.innerHeight)
 renderer.setAnimationLoop(animate)
 
+const clock = new THREE.Clock()
+clock.start()
+
+const controls = new FlyControls(camera, renderer.domElement)
+controls.movementSpeed = 1
+controls.rollSpeed = 0.5
+
 document.body.appendChild(renderer.domElement)
-const geometry = new THREE.BoxGeometry(1, 1, 1)
-const material = new THREE.MeshBasicMaterial({ color: 0xff4812 })
-const cube = new THREE.Mesh(geometry, material)
 
-scene.add(cube)
+scene.add(new THREE.AmbientLight(0xffffff, 5))
 
-camera.position.z = 5
+camera.position.y = 3
+
+generateTerrain().forEach((tri) => {
+  const geo = new THREE.BufferGeometry()
+  geo.setFromPoints(tri)
+  const mat = new THREE.MeshStandardMaterial({ color: 0x55ff55 })
+  const mesh = new THREE.Mesh(geo, mat)
+  scene.add(mesh)
+})
 
 function animate() {
-  cube.rotation.y += 0.01
-  cube.rotation.x += 0.01
+  controls.update(clock.getDelta())
   renderer.render(scene, camera)
 }
 
