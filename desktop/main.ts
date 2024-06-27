@@ -1,5 +1,5 @@
 import { app, BrowserWindow, ipcMain } from 'electron'
-import startServer from './netserver'
+import NetServer from './netserver'
 
 const createWindow = () => {
   const win = new BrowserWindow({
@@ -26,5 +26,5 @@ app.on('window-all-closed', () => {
 })
 
 ipcMain.on('server-start', (_e, port: number) => {
-  startServer(port)
+  new NetServer(port)
 })
