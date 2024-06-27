@@ -15,3 +15,4 @@ jobs:
       with:
         name: github-pages
         path: dist/core/
+    - uses: actions/deploy-pages@v4.0.5
