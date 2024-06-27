@@ -8,8 +8,8 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: 20.14.0
-    - run: npm ci
-    - run: npm run build
+    - run: pnpm ci
+    - run: pnpm run build
     - uses: actions/upload-pages-artifact@v3.0.1
       with:
         name: github-pages
