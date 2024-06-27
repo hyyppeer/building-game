@@ -1,0 +1,26 @@
+name: Github Pages
+permissions:
+  id-token: write
+  pages: write
+on:
+  push:
+    branches: main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 20.14.0
+    - run: corepack enable
+    - run: pnpm install
+    - run: pnpm run build
+    - uses: actions/upload-pages-artifact@v3.0.1
+      with:
+        name: github-pages
+        path: dist/core/
+    - uses: actions/deploy-pages@v4.0.5
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
