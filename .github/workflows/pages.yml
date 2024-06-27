@@ -4,16 +4,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repo
     - uses: actions/checkout@v4
-    - name: Setup node
     - uses: actions/setup-node@v4
       with:
         node-version: 20.14.0
-    - name: npm ci, build
     - run: npm ci
     - run: npm run build
-    - name: Upload and deploy
     - uses: actions/upload-pages-artifact@v3.0.1
       with:
         name: github-pages
